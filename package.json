@@ -1,0 +1,25 @@
+{
+  "name": "nevermore-academy-portal",
+  "version": "1.0.0",
+  "description": "Role-based academic web application for students and teachers.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.6.1",
+    "ejs": "^3.1.10",
+    "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.12.3",
+    "morgan": "^1.10.0",
+    "tar": "^7.5.13",
+    "validator": "^13.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

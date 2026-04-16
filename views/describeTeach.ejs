@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <main class="page-shell narrow-page">
+      <%- include('./partials/nav.ejs') %>
+
+      <section class="detail-card">
+        <h1><%= course.name %></h1>
+
+        <div class="detail-content">
+          <p><strong>Description:</strong> <%= course.description %></p>
+          <p><strong>Subject Area:</strong> <%= course.subjectArea %></p>
+          <p><strong>Credits:</strong> <%= course.credits %></p>
+        </div>
+
+        <div class="button-container">
+          <button id="delete-course" class="secondary-btn">Delete Course</button>
+        </div>
+      </section>
+
+      <%- include('./partials/footer.ejs') %>
+    </main>
+
+    <script>
+      const deleteButton = document.getElementById('delete-course');
+      const courseId = "<%= course._id %>";
+
+      deleteButton.addEventListener('click', () => {
+        const endpoint = `/courses/${courseId}`;
+
+        fetch(endpoint, {
+          method: 'DELETE'
+        })
+          .then((response) => response.json())
+          .then((data) => (window.location.href = data.redirect))
+          .catch((err) => console.log(err));
+      });
+    </script>
+  </body>
+</html>

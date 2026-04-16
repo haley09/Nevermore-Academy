@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <main class="page-shell">
+      <%- include('./partials/nav.ejs') %>
+
+      <section class="hero-section">
+        <div class="hero-content">
+          <p class="eyebrow">Academic Portal</p>
+          <h1>Welcome to Nevermore Academy</h1>
+          <p class="hero-text">
+            Nevermore Academy Portal is a role-based academic web application
+            designed to help students explore courses, build schedules, and
+            manage enrollment, while giving teachers a simple way to create and
+            maintain course offerings.
+          </p>
+
+          <div class="button-row">
+            <a class="button-link primary" href="/courseStudent">Browse Courses</a>
+            <a class="button-link secondary" href="/registerType">Get Started</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h2>Portal Features</h2>
+          <ul>
+            <li>Student and teacher authentication</li>
+            <li>Course catalog browsing</li>
+            <li>Student schedule management</li>
+            <li>Teacher course creation and removal</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="info-grid">
+        <article class="info-card">
+          <h2>For Students</h2>
+          <p>
+            Browse the course catalog, review course details, add courses to your
+            schedule, and drop courses when needed.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h2>For Teachers</h2>
+          <p>
+            Manage the academy’s course offerings by creating new courses and
+            maintaining existing ones through a protected teacher dashboard.
+          </p>
+        </article>
+
+        <article class="info-card">
+          <h2>Built With Purpose</h2>
+          <p>
+            This project demonstrates authentication, authorization, database
+            modeling, and server-side rendering in a full-stack web application.
+          </p>
+        </article>
+      </section>
+
+      <%- include('./partials/footer.ejs') %>
+    </main>
+  </body>
+</html>

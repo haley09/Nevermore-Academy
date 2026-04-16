@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <main class="page-shell">
+      <%- include('./partials/nav.ejs') %>
+
+      <section class="page-header">
+        <h1>Your Schedule</h1>
+        <p class="page-subtext">Manage the courses currently on your schedule.</p>
+      </section>
+
+      <section class="table-card">
+        <h2>Schedule for <%= student.firstName %></h2>
+
+        <% if (courses.length > 0) { %>
+          <table>
+            <tr class="top-row">
+              <th>Name</th>
+              <th>Description</th>
+              <th>Subject Area</th>
+              <th>Credits</th>
+            </tr>
+
+            <% courses.forEach(course => { %>
+              <tr>
+                <td class="name"><a href="/coursesStudent/<%= course._id %>"><%= course.name %></a></td>
+                <td class="description"><a href="/coursesStudent/<%= course._id %>"><%= course.description %></a></td>
+                <td class="subjectArea"><a href="/coursesStudent/<%= course._id %>"><%= course.subjectArea %></a></td>
+                <td class="credits"><a href="/coursesStudent/<%= course._id %>"><%= course.credits %></a></td>
+              </tr>
+            <% }) %>
+          </table>
+        <% } else { %>
+          <p class="empty-message">You are not registered for any courses.</p>
+        <% } %>
+      </section>
+
+      <%- include('./partials/footer.ejs') %>
+    </main>
+  </body>
+</html>

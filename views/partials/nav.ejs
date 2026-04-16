@@ -1,0 +1,24 @@
+<nav class="site-nav">
+  <div class="nav-brand">
+    <a href="/">Nevermore Academy</a>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+
+    <% if (student) { %>
+      <li><a href="/courseStudent">Course Catalog</a></li>
+      <li><a href="/schedule">My Schedule</a></li>
+      <li><a href="/logout">Log Out</a></li>
+    <% } else if (teacher) { %>
+      <li><a href="/courseTeach">Manage Courses</a></li>
+      <li><a href="/create">Create Course</a></li>
+      <li><a href="/logout">Log Out</a></li>
+    <% } else { %>
+      <li><a href="/courseStudent">Course Catalog</a></li>
+      <li><a href="/teachLogin">Teacher Login</a></li>
+      <li><a href="/stuLogin">Student Login</a></li>
+      <li><a href="/registerType">Register</a></li>
+    <% } %>
+  </ul>
+</nav>

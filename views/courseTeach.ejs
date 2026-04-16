@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <main class="page-shell">
+      <%- include('./partials/nav.ejs') %>
+
+      <section class="page-header">
+        <h1>Manage Courses</h1>
+        <p class="page-subtext">View current offerings and manage course records.</p>
+      </section>
+
+      <section class="table-card">
+        <% if (courses.length > 0) { %>
+          <table>
+            <tr class="top-row">
+              <th>Name</th>
+              <th>Description</th>
+              <th>Subject Area</th>
+              <th>Credits</th>
+            </tr>
+
+            <% courses.forEach(course => { %>
+              <tr>
+                <td class="name"><a href="/courses/<%= course._id %>"><%= course.name %></a></td>
+                <td class="description"><%= course.description %></td>
+                <td class="subjectArea"><%= course.subjectArea %></td>
+                <td class="credits"><%= course.credits %></td>
+              </tr>
+            <% }) %>
+          </table>
+        <% } else { %>
+          <p class="empty-message">There are no courses to display.</p>
+        <% } %>
+      </section>
+
+      <div class="button-container">
+        <a href="/create" class="button-link primary">Create New Course</a>
+      </div>
+
+      <%- include('./partials/footer.ejs') %>
+    </main>
+  </body>
+</html>

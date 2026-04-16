@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <main class="page-shell narrow-page">
+      <%- include('./partials/nav.ejs') %>
+
+      <section class="card-section center-content">
+        <h1>Create an Account</h1>
+        <p class="page-subtext">Choose the role you want to register as.</p>
+
+        <div class="button-stack">
+          <a href="/studentReg" class="button-link primary">Register as Student</a>
+          <a href="/teachReg" class="button-link secondary">Register as Teacher</a>
+        </div>
+      </section>
+
+      <%- include('./partials/footer.ejs') %>
+    </main>
+  </body>
+</html>

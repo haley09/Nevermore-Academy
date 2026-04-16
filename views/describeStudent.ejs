@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+
+  <body>
+    <main class="page-shell narrow-page">
+      <%- include('./partials/nav.ejs') %>
+
+      <section class="detail-card">
+        <h1><%= course.name %></h1>
+
+        <div class="detail-content">
+          <p><strong>Description:</strong> <%= course.description %></p>
+          <p><strong>Subject Area:</strong> <%= course.subjectArea %></p>
+          <p><strong>Credits:</strong> <%= course.credits %></p>
+        </div>
+
+        <div class="errorMessage"></div>
+
+        <div class="button-row">
+          <button id="register-button" class="primary-btn">Add Course</button>
+          <button id="drop-button" class="secondary-btn">Drop Course</button>
+        </div>
+      </section>
+
+      <%- include('./partials/footer.ejs') %>
+    </main>
+  </body>
+
+  <script>
+    const registerButton = document.getElementById('register-button');
+    const dropButton = document.getElementById('drop-button');
+    const errorMessage = document.querySelector('.errorMessage');
+    const courseId = "<%= course._id %>";
+    const schedule = "<%= student ? student.schedule : '' %>";
+
+    if (schedule.includes(courseId)) {
+      errorMessage.textContent = "You are already registered for this course.";
+    }
+
+    registerButton.addEventListener('click', async () => {
+      const endpoint = `/coursesStudent/${courseId}`;
+
+      fetch(endpoint, {
+        method: 'PUT'
+      })
+        .then((response) => response.json())
+        .then((data) => (window.location.href = data.redirect))
+        .catch((err) => console.log(err));
+    });
+
+    dropButton.addEventListener('click', async () => {
+      const endpoint = `/coursesStudent/${courseId}`;
+
+      fetch(endpoint, {
+        method: 'DELETE'
+      })
+        .then((response) => response.json())
+        .then((data) => (window.location.href = data.redirect))
+        .catch((err) => console.log(err));
+    });
+  </script>
+</html>
