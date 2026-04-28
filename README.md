@@ -99,7 +99,7 @@ Add pagination for large course catalogs
 Replace client-side fetch logic with API endpoints for SPA integration
 
 ## Author
-Haley Abel
+#### Haley Abel
 Informatics Student – Indiana University Indianapolis
 
 ## Project Purpose
