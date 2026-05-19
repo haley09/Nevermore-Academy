@@ -18,7 +18,15 @@ const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3030;
-const dbURI = "mongodb+srv://habel:Baird2024%40%21@cluster0.bzpn4rm.mongodb.net/Nevermore?retryWrites=true&w=majority";
+const dbURI = process.env.MONGODB_URI;
+
+if (!dbURI) {
+  throw new Error("MONGODB_URI must be set before starting the server.");
+}
+
+if (!process.env.JWT_SECRET) {
+  throw new Error("JWT_SECRET must be set before starting the server.");
+}
 
 // connect to mongodb
 mongoose

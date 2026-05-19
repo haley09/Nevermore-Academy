@@ -12,19 +12,14 @@ This project demonstrates backend development, authentication, database design, 
 - Secure login and registration for students and teachers
 - Password hashing using bcrypt
 - JWT-based authentication with cookies
-- Role-based access control:
-  - Students and teachers have separate permissions and views
-
----
+- Role-based access control for student and teacher views
 
 ### Student Functionality
 - Browse course catalog
 - View course details
-- Add courses to personal schedule
-- Drop courses from schedule
+- Add courses to a personal schedule
+- Drop courses from a schedule
 - View current schedule
-
----
 
 ### Teacher Functionality
 - Create new courses
@@ -32,12 +27,10 @@ This project demonstrates backend development, authentication, database design, 
 - Delete existing courses
 - Manage course catalog
 
----
-
 ### Course Management
 - MongoDB database with structured course data
 - Dynamic rendering of course lists and details
-- REST-style route handling (GET, POST, PUT, DELETE)
+- REST-style route handling with GET, POST, PUT, and DELETE
 
 ---
 
@@ -46,61 +39,78 @@ This project demonstrates backend development, authentication, database design, 
 - Node.js
 - Express.js
 - MongoDB & Mongoose
-- EJS (Embedded JavaScript Templates)
+- EJS
 - JSON Web Tokens (JWT)
-- bcrypt (password hashing)
+- bcrypt
 - HTML5 & CSS3
 
 ---
 
-## Key Concepts Demonstrated
-
-- Full-stack web application architecture
-- Authentication and session handling
-- Role-based authorization
-- MVC-style structure (models, views, controllers)
-- RESTful routing patterns
-- Database relationships and updates
-- Server-side rendering with EJS
-
----
-
 ## Project Structure
+
+```text
 Nevermore-Academy/
-│─ app.js
-│─ routes/
-│─ controllers/
-│─ models/
-│─ middleware/
-│─ views/
-│─ public/
-│─ .env (not included)
-│─ package.json
-│─ README.md
+|- app.js
+|- routes/
+|- controllers/
+|- models/
+|- middleware/
+|- views/
+|- public/
+|- package.json
+|- README.md
+```
 
 ---
 
 ## Setup Instructions
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Create a `.env` file:
+
+```text
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=3030
+```
+
+3. Start the app:
+
+```bash
+npm start
+```
+
+For development with nodemon:
+
+```bash
+npm run dev
+```
+
+---
 
 ## Future Improvements
-Add course editing functionality for teachers
 
-Implement search/filter for courses
+- Add course editing functionality for teachers.
+- Implement search and filtering for courses.
+- Improve UI with a modern component framework.
+- Add pagination for large course catalogs.
+- Replace GET logout with POST logout.
+- Add tests for auth, course creation, enrollment, and schedule removal.
 
-Improve UI with a modern component framework (React)
-
-Add pagination for large course catalogs
-
-Replace client-side fetch logic with API endpoints for SPA integration
+---
 
 ## Author
-#### Haley Abel
-Informatics Student – Indiana University Indianapolis
+
+Haley Abel  
+Informatics Student - Indiana University Indianapolis
+
+---
 
 ## Project Purpose
+
 This project was originally developed as part of a course assignment and later refactored to meet professional portfolio standards, with improvements to security, structure, and user experience.

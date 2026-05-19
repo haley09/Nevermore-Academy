@@ -45,6 +45,13 @@ const handleErrors = (err) => {
 
 // create token
 const maxAge = 3 * 24 * 60 * 60;
+const cookieOptions = {
+  httpOnly: true,
+  maxAge: maxAge * 1000,
+  sameSite: "lax",
+  secure: process.env.NODE_ENV === "production"
+};
+
 const createToken = (id) => {
   return jwt.sign({ id }, jwtSecret, {
     expiresIn: maxAge
@@ -75,7 +82,7 @@ module.exports.studentReg_post = async (req, res) => {
     });
 
     const token = createToken(student._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+    res.cookie("jwt", token, cookieOptions);
 
     res.status(201).json({ student: student._id });
   } catch (err) {
@@ -91,7 +98,7 @@ module.exports.stuLogin_post = async (req, res) => {
     const student = await Student.stuLogin(email, password);
 
     const token = createToken(student._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+    res.cookie("jwt", token, cookieOptions);
 
     res.status(200).json({ student: student._id });
   } catch (err) {
@@ -124,7 +131,7 @@ module.exports.teachReg_post = async (req, res) => {
     });
 
     const token = createToken(teacher._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+    res.cookie("jwt", token, cookieOptions);
 
     res.status(201).json({ teacher: teacher._id });
   } catch (err) {
@@ -140,7 +147,7 @@ module.exports.teachLogin_post = async (req, res) => {
     const teacher = await Teacher.teachLogin(email, password);
 
     const token = createToken(teacher._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+    res.cookie("jwt", token, cookieOptions);
 
     res.status(200).json({ teacher: teacher._id });
   } catch (err) {
@@ -154,6 +161,6 @@ module.exports.teachLogin_post = async (req, res) => {
 // --------------------
 
 module.exports.logout_get = (req, res) => {
-  res.cookie("jwt", "", { maxAge: 1 });
+  res.cookie("jwt", "", { ...cookieOptions, maxAge: 1 });
   res.redirect("/");
 };
