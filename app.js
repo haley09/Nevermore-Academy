@@ -20,6 +20,8 @@ const app = express();
 const PORT = process.env.PORT || 3030;
 const dbURI = process.env.MONGODB_URI;
 
+app.set("trust proxy", 1);
+
 if (!dbURI) {
   throw new Error("MONGODB_URI must be set before starting the server.");
 }

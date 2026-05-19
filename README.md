@@ -93,6 +93,32 @@ npm run dev
 
 ---
 
+## Render Deployment
+
+Create a new **Web Service** on Render and connect this GitHub repository.
+
+Use these settings:
+
+```text
+Environment: Node
+Build Command: npm install
+Start Command: npm start
+```
+
+Add these environment variables in Render:
+
+```text
+NODE_ENV=production
+MONGODB_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_long_random_secret
+```
+
+Important: if the MongoDB password was ever committed or shared, rotate that password in MongoDB Atlas before deploying.
+
+The repository also includes `render.yaml` for Render Blueprint deployment.
+
+---
+
 ## Future Improvements
 
 - Add course editing functionality for teachers.
