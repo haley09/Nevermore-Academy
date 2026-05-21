@@ -133,7 +133,15 @@ The repository also includes `render.yaml` for Render Blueprint deployment.
 ## Author
 
 Haley Abel  
-Informatics Student - Indiana University Indianapolis
+Software Development - Ivy Tech Community College
+
+---
+
+## Contributors
+
+- Haley Abel - HTML/CSS
+- Joe Douglas - front-end, back-end, and middleware
+- Heather Zarate - feature support
 
 ---
 
